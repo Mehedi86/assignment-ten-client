@@ -15,7 +15,7 @@ const GameCard = ({ singleData }) => {
                 <p className="font-semibold">Genre: {genre}</p>
                 <p className="font-semibold">Rating: {rating}</p>
                 <p className="font-semibold">Release_Date: {release_date}</p>
-                <p className="font-semibold space-x-2">Platform: {platforms.map((platform, id) => <p className="inline" key={id}>{platform}</p>)}</p>
+                <div className="font-semibold space-x-2">Platform: {platforms.map((platform, id) => <p className="inline" key={id}>{platform}</p>)}</div>
                 <p className="font-semibold">Developer: {developer}</p>
                 <button className="btn">Explore Details</button>
             </div>

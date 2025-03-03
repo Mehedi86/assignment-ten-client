@@ -15,7 +15,7 @@ const router = createBrowserRouter(
                 {
                     path: "/",
                     element: <HomePage />,
-                    loader: () => fetch('../gameData.json')
+                    loader: () => fetch('http://localhost:5000/games')
                 },
                 {
                     path: "/login",
