@@ -13,7 +13,7 @@ const Navbar = () => {
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                         <div>
-                            <NavLink to="/"   >Home</NavLink>
+                            <NavLink to="/">Home</NavLink>
                             <NavLink>All Reviews</NavLink>
                             <NavLink>Add Review</NavLink>
                             <NavLink>My Reviews</NavLink>
@@ -33,8 +33,8 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end gap-4 font-semibold">
-                <NavLink>Login</NavLink>
-                <NavLink>Registration</NavLink>
+                <NavLink to="/login">Login</NavLink>
+                <NavLink to="/register">Registration</NavLink>
             </div>
         </div>
     );
