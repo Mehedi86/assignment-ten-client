@@ -6,12 +6,14 @@ import { AuthContext } from "../providers/AuthProvider";
 const LoginPage = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const { signInWithGoogle } = useContext(AuthContext);
+    
+    const { signInWithGoogle, setNavigateLocation } = useContext(AuthContext);
 
     const googleSignInHandler = () => {
         signInWithGoogle()
             .then(result => {
                 console.log(result);
+                setNavigateLocation(location?.state);
                 navigate(location.state ? location.state : '/')
             })
             .catch(error => {

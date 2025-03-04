@@ -1,10 +1,15 @@
-import { useLoaderData } from "react-router-dom";
+import { Navigate, useLoaderData, useLocation } from "react-router-dom";
 import ReviewCard from "../components/ReviewCard";
 
 
 const MyReviews = () => {
     const loadedReview = useLoaderData();
-    console.log(loadedReview)
+    const location = useLocation();
+
+    if (location.pathname == "/myReviews/undefined") {
+        return <Navigate to="/"></Navigate>
+    }
+
     return (
         <div>
             <h2 className="text-[#331A15] font-semibold text-4xl text-center my-8">My Reviews</h2>
