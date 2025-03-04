@@ -15,7 +15,7 @@ const Navbar = () => {
                         <div>
                             <NavLink to="/">Home</NavLink>
                             <NavLink>All Reviews</NavLink>
-                            <NavLink>Add Review</NavLink>
+                            <NavLink to="/addReview">Add Review</NavLink>
                             <NavLink>My Reviews</NavLink>
                             <NavLink>Game Watchlist</NavLink>
                         </div>
@@ -27,7 +27,7 @@ const Navbar = () => {
                 <ul className="menu menu-horizontal px-1 gap-4 font-semibold">
                     <NavLink to="/">Home</NavLink>
                     <NavLink>All Reviews</NavLink>
-                    <NavLink>Add Review</NavLink>
+                    <NavLink to="/addReview">Add Review</NavLink>
                     <NavLink>My Reviews</NavLink>
                     <NavLink>Game Watchlist</NavLink>
                 </ul>
