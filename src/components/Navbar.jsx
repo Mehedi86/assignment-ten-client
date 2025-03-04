@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../providers/AuthProvider';
 
 const Navbar = () => {
+    const { user, signOutUser } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        signOutUser().then(() => {
+            // signOut successfull
+        })
+            .catch(error => {
+                console.log(error.message)
+            })
+    }
     return (
         <div className="navbar bg-base-100 shadow-sm">
             <div className="navbar-start">
@@ -17,7 +28,7 @@ const Navbar = () => {
                             <NavLink to="/allReviews">All Reviews</NavLink>
                             <NavLink to="/addReview">Add Review</NavLink>
                             <NavLink to="/myReviews">My Reviews</NavLink>
-                            <NavLink>Game Watchlist</NavLink>
+                            <NavLink to="/gameWatchList">Game Watchlist</NavLink>
                         </div>
                     </ul>
                 </div>
@@ -28,14 +39,31 @@ const Navbar = () => {
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/allReviews">All Reviews</NavLink>
                     <NavLink to="/addReview">Add Review</NavLink>
-                    <NavLink to="/myReviews">My Reviews</NavLink>
-                    <NavLink>Game Watchlist</NavLink>
+                    <NavLink to={`/myReviews/${user?.email}`}>My Reviews</NavLink>
+                    <NavLink to="/gameWatchList">Game Watchlist</NavLink>
                 </ul>
             </div>
-            <div className="navbar-end gap-4 font-semibold">
-                <NavLink to="/login">Login</NavLink>
-                <NavLink to="/register">Registration</NavLink>
-            </div>
+            {user ? (
+                <div className="md:navbar-end">
+                    <div className="flex border-2 border-gray-200 p-1 rounded items-center">
+                        <div className="avatar">
+                            <div className="w-6 h-6 md:w-12 md:h-12 rounded-full">
+                                <img src={user?.photoURL} />
+                            </div>
+                        </div>
+                        <div className="mx-4 text-sm md:text-base">
+                            <h2>{user?.displayName}</h2>
+                            <h2>{user?.email}</h2>
+                        </div>
+                    </div>
+                    <button onClick={handleLogOut} className="btn btn-neutral ml-2">Logout</button>
+                </div>
+            ) : (
+                <div className="navbar-end gap-4">
+                    <NavLink to="/login" >Login</NavLink>
+                    <NavLink to="/register">Registration</NavLink>
+                </div>
+            )}
         </div>
     );
 };

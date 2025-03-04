@@ -9,6 +9,8 @@ import AllReviews from "../pages/AllReviews";
 import ReviewDetails from "../pages/ReviewDetails";
 import GameDetails from "../pages/GameDetails";
 import MyReviews from "../pages/MyReviews";
+import PrivateRoute from "../components/PrivateRoute";
+import GameWatchList from "../pages/GameWatchList";
 
 const router = createBrowserRouter(
     [
@@ -32,7 +34,8 @@ const router = createBrowserRouter(
                 },
                 {
                     path: "/addReview",
-                    element: <AddReview/>
+                    element: <PrivateRoute><AddReview/></PrivateRoute>
+                    
                 },
                 {
                     path: "/allReviews",
@@ -50,8 +53,13 @@ const router = createBrowserRouter(
                     loader: ({params})=> fetch(`http://localhost:5000/games/${params.id}`)
                 },
                 {
-                    path: "/myReviews",
-                    element: <MyReviews/>
+                    path: "/myReviews/:email",
+                    element: <PrivateRoute><MyReviews/></PrivateRoute>,
+                    loader: ({params})=> fetch(`http://localhost:5000/reviews/yourReview/${params.email}`)
+                },
+                {
+                    path: "/gameWatchList",
+                    element: <PrivateRoute><GameWatchList/></PrivateRoute>
                 }
             ]
         }

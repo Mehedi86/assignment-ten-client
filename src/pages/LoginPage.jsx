@@ -1,16 +1,18 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 
 const LoginPage = () => {
     const navigate = useNavigate();
+    const location = useLocation();
     const { signInWithGoogle } = useContext(AuthContext);
 
     const googleSignInHandler = () => {
         signInWithGoogle()
             .then(result => {
-                console.log(result)
+                console.log(result);
+                navigate(location.state ? location.state : '/')
             })
             .catch(error => {
                 console.log("Error", error.message)

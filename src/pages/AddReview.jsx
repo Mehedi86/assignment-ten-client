@@ -1,7 +1,12 @@
+import { useContext } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../providers/AuthProvider";
 
 
 const AddReview = () => {
+    const {user} = useContext(AuthContext);
+    console.log(user)
+
     const handleAddReview = e => {
         e.preventDefault();
         const form = e.target;
@@ -59,7 +64,7 @@ const AddReview = () => {
                             </div>
                             <div>
                                 <label>User Name</label>
-                                <input type="text" placeholder="User Name" className="input w-full" name="username" />
+                                <input type="text" placeholder="User Name" className="input w-full" name="username" value={user?.displayName} readOnly/>
                             </div>
                         </div>
                         <div className="md:w-1/2 space-y-4">
@@ -90,7 +95,7 @@ const AddReview = () => {
                             </div>
                             <div>
                                 <label>User Email</label>
-                                <input type="text" placeholder="User Email" className="input w-full" name="email" />
+                                <input type="text" placeholder="User Email" className="input w-full" name="email" value={user?.email} readOnly/>
                             </div>
                         </div>
                     </div>
