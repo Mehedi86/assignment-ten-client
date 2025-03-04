@@ -1,8 +1,22 @@
 import { useNavigate } from "react-router-dom";
-
+import { FaGoogle } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../providers/AuthProvider";
 
 const LoginPage = () => {
     const navigate = useNavigate();
+    const { signInWithGoogle } = useContext(AuthContext);
+
+    const googleSignInHandler = () => {
+        signInWithGoogle()
+            .then(result => {
+                console.log(result)
+            })
+            .catch(error => {
+                console.log("Error", error.message)
+            })
+    }
+
     return (
         <div className="w-full min-h-[600px] flex justify-center items-center">
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
@@ -15,8 +29,8 @@ const LoginPage = () => {
                         <input type="password" className="input" placeholder="Password" name="password" />
                         <button className="btn btn-neutral my-2">Login</button>
                     </form>
-                    <button className="btn"> Login with google</button>
-                    <p>Dont have an account? <span onClick={() => navigate("/register")} className="text-red-400 cursor-pointer">Register</span></p>
+                    <button onClick={googleSignInHandler} className="btn"><FaGoogle /> Login with google</button>
+                    <p>Dont have an account? <span onClick={() => navigate("/register")} className="text-red-400 cursor-pointer">Login</span></p>
                 </div>
             </div>
         </div>
