@@ -1,7 +1,7 @@
-;
+import { Link } from "react-router-dom";
 
 const GameCard = ({ singleData }) => {
-    const { title, image, rating, genre, release_date, platforms, developer, short_description } = singleData;
+    const { _id, title, image, rating, genre, release_date, platforms, developer, short_description } = singleData;
     return (
         <div className="card bg-base-100 shadow-sm">
             <figure>
@@ -17,7 +17,7 @@ const GameCard = ({ singleData }) => {
                 <p className="font-semibold">Release_Date: {release_date}</p>
                 <div className="font-semibold space-x-2">Platform: {platforms.map((platform, id) => <p className="inline" key={id}>{platform}</p>)}</div>
                 <p className="font-semibold">Developer: {developer}</p>
-                <button className="btn">Explore Details</button>
+                <Link to={`/gameDetails/${_id}`} className="btn">Explore Details</Link>
             </div>
         </div>
     );
