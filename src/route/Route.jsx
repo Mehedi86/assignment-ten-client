@@ -5,6 +5,7 @@ import ErrorPage from "../pages/ErrorPage";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import AddReview from "../pages/AddReview";
+import AllReviews from "../pages/AllReviews";
 
 const router = createBrowserRouter(
     [
@@ -29,6 +30,11 @@ const router = createBrowserRouter(
                 {
                     path: "/addReview",
                     element: <AddReview/>
+                },
+                {
+                    path: "/allReviews",
+                    element: <AllReviews/>,
+                    loader: ()=> fetch('http://localhost:5000/reviews')
                 }
             ]
         }

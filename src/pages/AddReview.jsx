@@ -19,20 +19,20 @@ const AddReview = () => {
             cover_url, title, description, username, rating, publishYear,
             genre, email
         }
-        
+
         fetch('http://localhost:5000/addReview', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
             },
             body: JSON.stringify(reviewToPost)
-        }).then(res=> res.json()).then(data=> {
+        }).then(res => res.json()).then(data => {
             console.log(data);
             Swal.fire({
                 title: "Drag me!",
                 icon: "success",
                 draggable: true
-              });
+            });
         })
     }
     return (
@@ -46,12 +46,12 @@ const AddReview = () => {
                     <div className="md:flex gap-4">
                         <div className="md:w-1/2 space-y-4">
                             <div>
-                                <label>Cover Image</label>
-                                <input type="text" placeholder="Cover Image" className="input w-full" name="cover" />
-                            </div>
-                            <div>
                                 <label>Game Title/Name</label>
                                 <input type="text" placeholder="Game Title/Name" className="input w-full" name="title" />
+                            </div>
+                            <div>
+                                <label>Cover Image</label>
+                                <input type="text" placeholder="Cover Image" className="input w-full" name="cover" />
                             </div>
                             <div>
                                 <label>Review Description</label>
