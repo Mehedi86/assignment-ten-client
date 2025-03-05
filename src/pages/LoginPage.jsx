@@ -7,13 +7,14 @@ const LoginPage = () => {
     const navigate = useNavigate();
     const location = useLocation();
     
-    const { signInWithGoogle, setNavigateLocation } = useContext(AuthContext);
+    const { signInWithGoogle, setNavigateLocation, setLoadUserForList } = useContext(AuthContext);
 
     const googleSignInHandler = () => {
         signInWithGoogle()
             .then(result => {
                 console.log(result);
                 setNavigateLocation(location?.state);
+                setLoadUserForList(location?.state);
                 navigate(location.state ? location.state : '/')
             })
             .catch(error => {

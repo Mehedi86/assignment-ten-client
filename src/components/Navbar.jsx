@@ -40,7 +40,7 @@ const Navbar = () => {
                     <NavLink to="/allReviews">All Reviews</NavLink>
                     <NavLink to="/addReview">Add Review</NavLink>
                     <NavLink to={`/myReviews/${user?.email}`}>My Reviews</NavLink>
-                    <NavLink to="/gameWatchList">Game Watchlist</NavLink>
+                    <NavLink to={`/gameWatchList/${user?.email}`}>Game Watchlist</NavLink>
                 </ul>
             </div>
             {user ? (

@@ -6,7 +6,7 @@ import { AuthContext } from '../providers/AuthProvider';
 
 const HomePage = () => {
     const gameData = useLoaderData();
-    const { navigateLocation, setNavigateLocation, user } = useContext(AuthContext);
+    const { navigateLocation, setNavigateLocation, user, loadUserForList, setLoadUserForList } = useContext(AuthContext);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -14,7 +14,16 @@ const HomePage = () => {
             navigate(`/myReviews/${user?.email}`);
             setNavigateLocation(null)
         }
+
     }, [navigateLocation, user?.email, navigate, setNavigateLocation])
+
+    useEffect(() => {
+        if (loadUserForList == '/gameWatchList/undefined') {
+            navigate(`/gameWatchList/${user?.email}`);
+            setLoadUserForList(null)
+
+        }
+    }, [loadUserForList, setLoadUserForList, user?.email, navigate])
 
     return (
         <div>

@@ -8,6 +8,7 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [navigateLocation, setNavigateLocation] = useState(null);
+    const [loadUserForList, setLoadUserForList] = useState(null);
 
     const googleProvider = new GoogleAuthProvider();
 
@@ -38,9 +39,11 @@ const AuthProvider = ({ children }) => {
         signOutUser,
         setLoading,
         setNavigateLocation,
+        setLoadUserForList,
         navigateLocation,
         user,
-        loading
+        loading,
+        loadUserForList
     }
     return (
         <AuthContext.Provider value={authInfo}>

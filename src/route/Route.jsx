@@ -58,8 +58,9 @@ const router = createBrowserRouter(
                     loader: ({params})=> fetch(`http://localhost:5000/reviews/yourReview/${params.email}`)
                 },
                 {
-                    path: "/gameWatchList",
-                    element: <PrivateRoute><GameWatchList/></PrivateRoute>
+                    path: "/gameWatchList/:email",
+                    element: <PrivateRoute><GameWatchList/></PrivateRoute>,
+                    loader: ({params})=> fetch(`http://localhost:5000/myWatchlist/${params.email}`)
                 }
             ]
         }

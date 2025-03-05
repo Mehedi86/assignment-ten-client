@@ -1,12 +1,27 @@
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const ReviewDetails = () => {
 
     const reviewDetails = useLoaderData();
-    const { _id, cover_url, title, description, username, rating, publishYear, genre, email } = reviewDetails;
+    const { user } = useContext(AuthContext);
+    const { _id, cover_url, title, description, username, rating, publishYear, genre } = reviewDetails;
 
-    const addToWatchListHandler = (id) =>{
-        console.log(id)
+    const addToWatchListHandler = () => {
+        const email = user?.email;
+        const InfoForWatchlist = { email, title, rating, publishYear, genre }
+        fetch('http://localhost:5000/myWatchlist', {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(InfoForWatchlist)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
     }
     return (
         <div>
@@ -24,7 +39,7 @@ const ReviewDetails = () => {
                     <h2 className="text-xl font-bold">Rating: {rating}</h2>
                     <h2 className="text-2xl my-2 text-orange-200 font-semibold">Author: {username}</h2>
                     <p className="font-semibold text-gray-400">Description: {description}</p>
-                    <button className="btn bg-[#D2B48C] text-lg font-bold my-6" onClick={() => addToWatchListHandler(_id)}>Add to WatchList</button>
+                    <button className="btn bg-[#D2B48C] text-lg font-bold my-6" onClick={addToWatchListHandler}>Add to WatchList</button>
                 </div>
             </div>
         </div>
