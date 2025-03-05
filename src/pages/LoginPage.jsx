@@ -6,13 +6,30 @@ import { AuthContext } from "../providers/AuthProvider";
 const LoginPage = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    
-    const { signInWithGoogle, setNavigateLocation, setLoadUserForList } = useContext(AuthContext);
+
+    const { signInWithGoogle, setNavigateLocation, setLoadUserForList, loginUser } = useContext(AuthContext);
 
     const googleSignInHandler = () => {
         signInWithGoogle()
             .then(result => {
                 console.log(result);
+                setNavigateLocation(location?.state);
+                setLoadUserForList(location?.state);
+                navigate(location.state ? location.state : '/')
+            })
+            .catch(error => {
+                console.log("Error", error.message)
+            })
+    }
+    const loginHandler = e => {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        loginUser(email, password)
+            .then(result => {
+                console.log(result)
                 setNavigateLocation(location?.state);
                 setLoadUserForList(location?.state);
                 navigate(location.state ? location.state : '/')
@@ -27,7 +44,7 @@ const LoginPage = () => {
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                 <div className="card-body">
                     <h2 className="text-2xl font-semibold text-center">Login your account</h2>
-                    <form className="fieldset">
+                    <form onSubmit={loginHandler} className="fieldset">
                         <label className="fieldset-label text-lg">Email</label>
                         <input type="email" className="input" placeholder="Email" name="email" />
                         <label className="fieldset-label text-lg">Password</label>

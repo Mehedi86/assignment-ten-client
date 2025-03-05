@@ -64,7 +64,7 @@ const AddReview = () => {
                             </div>
                             <div>
                                 <label>User Name</label>
-                                <input type="text" placeholder="User Name" className="input w-full" name="username" value={user?.displayName} readOnly/>
+                                <input type="text" placeholder="User Name" className="input w-full" name="username" value={user?.displayName || ""} readOnly/>
                             </div>
                         </div>
                         <div className="md:w-1/2 space-y-4">
@@ -95,7 +95,7 @@ const AddReview = () => {
                             </div>
                             <div>
                                 <label>User Email</label>
-                                <input type="text" placeholder="User Email" className="input w-full" name="email" value={user?.email} readOnly/>
+                                <input type="text" placeholder="User Email" className="input w-full" name="email" value={user?.email || ""} readOnly/>
                             </div>
                         </div>
                     </div>
