@@ -1,11 +1,12 @@
 import { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Navigate, useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 
 const ReviewDetails = () => {
 
     const reviewDetails = useLoaderData();
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
     const { _id, cover_url, title, description, username, rating, publishYear, genre } = reviewDetails;
 
     const addToWatchListHandler = () => {
@@ -23,6 +24,7 @@ const ReviewDetails = () => {
                 console.log(data)
             })
     }
+
     return (
         <div>
             <div className="min-h-[360px] bg-[#D2B48C] pt-8 ">
@@ -39,7 +41,7 @@ const ReviewDetails = () => {
                     <h2 className="text-xl font-bold">Rating: {rating}</h2>
                     <h2 className="text-2xl my-2 text-orange-200 font-semibold">Author: {username}</h2>
                     <p className="font-semibold text-gray-400">Description: {description}</p>
-                    <button className="btn bg-[#D2B48C] text-lg font-bold my-6" onClick={addToWatchListHandler}>Add to WatchList</button>
+                    <button className="btn bg-[#D2B48C] text-lg font-bold my-6" onClick={user ? addToWatchListHandler : ()=> navigate("/login")}>Add to WatchList</button>
                 </div>
             </div>
         </div>
