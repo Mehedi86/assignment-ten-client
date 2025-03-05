@@ -21,7 +21,7 @@ const ReviewCard = ({ singleReview }) => {
                 </div>
                 <div>
                     {location.pathname == "/allReviews" ? <Link to={`/reviewDetails/${_id}`} className="btn bg-[#D2B48C] text-white"><LuSquareMenu size={20} />Explore Details</Link> : <div className="flex flex-col justify-end">
-                        <Link className="btn bg-[#3C393B] text-white"><MdModeEdit size={20} /></Link>
+                        <Link to={`/updateReview/${_id}`} className="btn bg-[#3C393B] text-white"><MdModeEdit size={20} /></Link>
                         <button className="btn bg-[#EA4744] text-white"><MdDelete size={20} /></button>
                     </div>}
                 </div>
