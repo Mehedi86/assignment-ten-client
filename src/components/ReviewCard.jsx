@@ -3,8 +3,9 @@ import { MdModeEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import { Link, useLocation } from "react-router-dom";
 
-const ReviewCard = ({ singleReview }) => {
+const ReviewCard = ({ singleReview, deleteReview }) => {
     const location = useLocation();
+    
     const { _id, cover_url, title, genre, rating, publishYear } = singleReview;
 
     return (
@@ -22,7 +23,7 @@ const ReviewCard = ({ singleReview }) => {
                 <div>
                     {location.pathname == "/allReviews" ? <Link to={`/reviewDetails/${_id}`} className="btn bg-[#D2B48C] text-white"><LuSquareMenu size={20} />Explore Details</Link> : <div className="flex flex-col justify-end">
                         <Link to={`/updateReview/${_id}`} className="btn bg-[#3C393B] text-white"><MdModeEdit size={20} /></Link>
-                        <button className="btn bg-[#EA4744] text-white"><MdDelete size={20} /></button>
+                        <button onClick={()=> deleteReview(_id)} className="btn bg-[#EA4744] text-white"><MdDelete size={20} /></button>
                     </div>}
                 </div>
             </div>

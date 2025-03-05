@@ -38,6 +38,7 @@ const AddReview = () => {
                 icon: "success",
                 draggable: true
             });
+            form.reset();
         })
     }
     return (
