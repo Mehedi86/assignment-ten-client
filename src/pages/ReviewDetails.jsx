@@ -12,7 +12,7 @@ const ReviewDetails = () => {
     const addToWatchListHandler = () => {
         const email = user?.email;
         const InfoForWatchlist = { email, title, rating, publishYear, genre }
-        fetch('http://localhost:5000/myWatchlist', {
+        fetch('https://assignment-10-server-side-neon.vercel.app/myWatchlist', {
             method: "POST",
             headers: {
                 "content-type": "application/json"

@@ -3,6 +3,8 @@ import Banner from '../components/Banner';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import HighestRatedGame from '../components/HighestRatedGame';
 import { AuthContext } from '../providers/AuthProvider';
+import ThemeToggle from '../components/ThemeToggle';
+import LottieReact from '../components/LottieReact';
 
 const HomePage = () => {
     const gameData = useLoaderData();
@@ -27,6 +29,10 @@ const HomePage = () => {
 
     return (
         <div>
+            <div className='flex justify-between'>
+                <ThemeToggle />
+                <LottieReact />
+            </div>
             <Banner />
             <HighestRatedGame gameData={gameData} />
         </div>

@@ -23,7 +23,7 @@ const router = createBrowserRouter(
                 {
                     path: "/",
                     element: <HomePage />,
-                    loader: () => fetch('http://localhost:5000/games')
+                    loader: () => fetch('https://assignment-10-server-side-neon.vercel.app/games')
                 },
                 {
                     path: "/login",
@@ -41,32 +41,32 @@ const router = createBrowserRouter(
                 {
                     path: "/allReviews",
                     element: <AllReviews/>,
-                    loader: ()=> fetch('http://localhost:5000/reviews')
+                    loader: ()=> fetch('https://assignment-10-server-side-neon.vercel.app/reviews')
                 },
                 {
                     path: "/reviewDetails/:id",
                     element: <ReviewDetails/>,
-                    loader: ({params})=> fetch(`http://localhost:5000/reviews/${params.id}`)
+                    loader: ({params})=> fetch(`https://assignment-10-server-side-neon.vercel.app/reviews/${params.id}`)
                 },
                 {
                     path: "/gameDetails/:id",
                     element: <GameDetails/>,
-                    loader: ({params})=> fetch(`http://localhost:5000/games/${params.id}`)
+                    loader: ({params})=> fetch(`https://assignment-10-server-side-neon.vercel.app/games/${params.id}`)
                 },
                 {
                     path: "/myReviews/:email",
                     element: <PrivateRoute><MyReviews/></PrivateRoute>,
-                    loader: ({params})=> fetch(`http://localhost:5000/reviews/yourReview/${params.email}`)
+                    loader: ({params})=> fetch(`https://assignment-10-server-side-neon.vercel.app/reviews/yourReview/${params.email}`)
                 },
                 {
                     path: "/gameWatchList/:email",
                     element: <PrivateRoute><GameWatchList/></PrivateRoute>,
-                    loader: ({params})=> fetch(`http://localhost:5000/myWatchlist/${params.email}`)
+                    loader: ({params})=> fetch(`https://assignment-10-server-side-neon.vercel.app/myWatchlist/${params.email}`)
                 },
                 {
                     path: '/updateReview/:id',
                     element:<UpdateReview/>,
-                    loader: ({params})=> fetch(`http://localhost:5000/reviews/${params.id}`)
+                    loader: ({params})=> fetch(`https://assignment-10-server-side-neon.vercel.app/reviews/${params.id}`)
                 }
             ]
         }

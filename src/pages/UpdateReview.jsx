@@ -18,7 +18,7 @@ const UpdateReview = () => {
 
         const updatedReview = { cover_url, title, description, username, rating, publishYear, genre, email }
 
-        fetch(`http://localhost:5000/updateReviews/${_id}`, {
+        fetch(`https://assignment-10-server-side-neon.vercel.app/updateReviews/${_id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"

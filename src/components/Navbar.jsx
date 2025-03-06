@@ -1,13 +1,17 @@
 import React, { useContext } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
+import { Tooltip } from 'react-tooltip'
+import 'react-tooltip/dist/react-tooltip.css'
 
 const Navbar = () => {
+    const navigate = useNavigate();
     const { user, signOutUser } = useContext(AuthContext);
 
     const handleLogOut = () => {
         signOutUser().then(() => {
             // signOut successfull
+            navigate("/");
         })
             .catch(error => {
                 console.log(error.message)
@@ -45,15 +49,14 @@ const Navbar = () => {
             </div>
             {user ? (
                 <div className="md:navbar-end">
-                    <div className="flex border-2 border-gray-200 p-1 rounded items-center">
+                    <div className="flex p-1 rounded items-center">
                         <div className="avatar">
                             <div className="w-6 h-6 md:w-12 md:h-12 rounded-full">
-                                <img src={user?.photoURL} />
+                                <a className='cursor-pointer' data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName}>
+                                    <img src={user?.photoURL} />
+                                    <Tooltip id="my-tooltip" />
+                                </a>
                             </div>
-                        </div>
-                        <div className="mx-4 text-sm md:text-base">
-                            <h2>{user?.displayName}</h2>
-                            <h2>{user?.email}</h2>
                         </div>
                     </div>
                     <button onClick={handleLogOut} className="btn btn-neutral ml-2">Logout</button>
