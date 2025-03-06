@@ -10,8 +10,8 @@ const ReviewCard = ({ singleReview, deleteReview }) => {
 
     return (
         <div className="md:flex items-center gap-4 w-full p-6 bg-[#F5F4F1] rounded-xl my-2 md:my-0">
-            <div>
-                <img className="w-60" src={cover_url || "hello"} alt="" />
+            <div className="md:w-3/6">
+                <img className="w-full" src={cover_url || "hello"} alt="" />
             </div>
             <div className="md:flex items-center justify-between w-full">
                 <div>

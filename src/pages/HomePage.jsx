@@ -5,6 +5,8 @@ import HighestRatedGame from '../components/HighestRatedGame';
 import { AuthContext } from '../providers/AuthProvider';
 import ThemeToggle from '../components/ThemeToggle';
 import LottieReact from '../components/LottieReact';
+import NewReview from '../components/NewReview';
+import UpcomingGames from '../components/UpcomingGames';
 
 const HomePage = () => {
     const gameData = useLoaderData();
@@ -34,7 +36,9 @@ const HomePage = () => {
                 <LottieReact />
             </div>
             <Banner />
+            <NewReview/>
             <HighestRatedGame gameData={gameData} />
+            <UpcomingGames/>
         </div>
     );
 };
