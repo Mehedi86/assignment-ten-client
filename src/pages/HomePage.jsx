@@ -29,7 +29,7 @@ const HomePage = () => {
 
     return (
         <div>
-            <div className='flex justify-between'>
+            <div className='flex justify-between items-center'>
                 <ThemeToggle />
                 <LottieReact />
             </div>

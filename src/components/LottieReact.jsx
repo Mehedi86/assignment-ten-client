@@ -3,7 +3,7 @@ import animation from "../../src/animation.json"
 
 const LottieReact = () => {
     return (
-         <Lottie animationData={animation} loop={true} style={{ width: 50, height: 50 }}/>
+         <Lottie className="rounded overflow-hidden" animationData={animation} loop={true} style={{ width: 50, height: 50 }}/>
     );
 };
 
