@@ -45,7 +45,7 @@ const AddReview = () => {
         <div className="bg-[url(/11.png)] min-h-screen pt-24 bg-no-repeat">
             <div className="bg-[#F4F3F0] md:w-2/3 mx-auto px-8 py-4">
                 <div className="md:w-1/2 mx-auto my-12 space-y-6 text-center">
-                    <h2 className="text-4xl">Add Review</h2>
+                    <h2 className="text-2xl md:text-4xl">Add Review</h2>
                     <p>Reviewing game will enhanced your game reviewing skills and your reviews are useful for another gamers who do will to play this game.</p>
                 </div>
                 <form onSubmit={handleAddReview}>
@@ -68,7 +68,7 @@ const AddReview = () => {
                                 <input type="text" placeholder="User Name" className="input w-full" name="username" value={user?.displayName || ""} readOnly/>
                             </div>
                         </div>
-                        <div className="md:w-1/2 space-y-4">
+                        <div className="md:w-1/2 space-y-4 mt-2 md:mt-0">
                             <div>
                                 <label>Rating</label>
                                 <input type="text" placeholder="Rating" className="input w-full" name="rating" />

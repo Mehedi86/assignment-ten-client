@@ -58,7 +58,7 @@ const LoginPage = () => {
                         <button className="btn btn-neutral my-2">Login</button>
                     </form>
                     <button onClick={googleSignInHandler} className="btn"><FaGoogle /> Login with google</button>
-                    <p>Dont have an account? <span onClick={() => navigate("/register")} className="text-red-400 cursor-pointer">Login</span></p>
+                    <p>Dont have an account? <span onClick={() => navigate("/register")} className="text-red-400 cursor-pointer">Register</span></p>
                 </div>
             </div>
         </div>

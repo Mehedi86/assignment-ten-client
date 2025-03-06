@@ -6,8 +6,6 @@ import { useState } from "react";
 const AllReviews = () => {
     const loadedReview = useLoaderData();
     const [reviews, setReviews] = useState(loadedReview);
-    console.log(reviews);
-
 
     const genres = ["Action", "Adventure", "RPG", "FPS", "Battle Royale", "Strategy", "Sports", "Racing", "Simulation", "Puzzle", "Fighting", "Survival"]
 
@@ -28,7 +26,7 @@ const AllReviews = () => {
 
     return (
         <div className="mb-10">
-            <h2 className="text-[#331A15] font-semibold text-4xl text-center my-8">All Reviews</h2>
+            <h2 className="text-[#331A15] font-semibold text-2xl md:text-4xl text-center my-8">All Reviews</h2>
             <div className="flex justify-end mb-12 w-2/3 mx-auto">
                 <details className="dropdown">
                     <summary className="btn m-1">{"Filter >>"}</summary>
@@ -44,7 +42,7 @@ const AllReviews = () => {
                     </ul>
                 </details>
             </div>
-            <div className="w-2/3 mx-auto grid grid-cols-2 gap-4">
+            <div className="w-11/12 md:w-2/3 mx-auto md:grid grid-cols-2 gap-4">
                 {reviews.map(singleReview => <ReviewCard
                     key={singleReview._id}
                     singleReview={singleReview} />)}

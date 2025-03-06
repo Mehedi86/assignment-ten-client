@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const GameCard = ({ singleData }) => {
     const { _id, title, image, rating, genre, release_date, platforms, developer, short_description } = singleData;
     return (
-        <div className="card bg-base-100 shadow-sm">
+        <div className="card bg-base-100 shadow-sm my-2 md: md:my-0">
             <figure>
                 <img
                     src={image}

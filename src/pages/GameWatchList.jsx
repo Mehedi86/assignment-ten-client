@@ -11,13 +11,13 @@ const GameWatchList = () => {
     
     return (
         <div className="container mx-auto">
-            <h2 className="text-4xl my-12 font-semibold text-center">My Watchlist</h2>
+            <h2 className="text-2xl md:text-4xl my-12 font-semibold text-center">My Watchlist</h2>
             <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
                 <table className="table">
                     {/* head */}
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>No.</th>
                             <th>Name</th>
                             <th>Genre</th>
                             <th>Publish Year</th>

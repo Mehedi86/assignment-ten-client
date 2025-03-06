@@ -35,7 +35,7 @@ const MyReviews = () => {
 
     return (
         <div className="container mx-auto">
-            <h2 className="text-[#331A15] font-semibold text-4xl text-center my-8">My Reviews</h2>
+            <h2 className="text-[#331A15] font-semibold text-2xl md:text-4xl text-center my-8">My Reviews</h2>
             <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
                 <table className="table text-center">
                     {/* head */}
