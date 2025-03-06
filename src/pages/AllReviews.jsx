@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import ReviewCard from "../components/ReviewCard";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 
 const AllReviews = () => {
@@ -27,7 +27,7 @@ const AllReviews = () => {
     }
 
     return (
-        <div>
+        <div className="mb-10">
             <h2 className="text-[#331A15] font-semibold text-4xl text-center my-8">All Reviews</h2>
             <div className="flex justify-end mb-12 w-2/3 mx-auto">
                 <details className="dropdown">

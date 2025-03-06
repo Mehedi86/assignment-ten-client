@@ -3,6 +3,7 @@ import { Link, Navigate, useLoaderData, useLocation } from "react-router-dom";
 import { MdModeEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 
 
@@ -24,6 +25,11 @@ const MyReviews = () => {
                 console.log(data)
                 const remaining = reviews.filter(r => r._id !== _id);
                 setReviews(remaining);
+                Swal.fire({
+                    title: "Deleted",
+                    icon: "success",
+                    draggable: true
+                  });
             })
     }
 

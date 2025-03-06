@@ -34,7 +34,7 @@ const AddReview = () => {
         }).then(res => res.json()).then(data => {
             console.log(data);
             Swal.fire({
-                title: "Drag me!",
+                title: "Review added successfully!",
                 icon: "success",
                 draggable: true
             });

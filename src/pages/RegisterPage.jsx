@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const RegisterPage = () => {
     const navigate = useNavigate();
@@ -29,6 +30,11 @@ const RegisterPage = () => {
                 updateUserProfile({ displayName: name, photoURL: photoUrl })
                     .then(() => {
                         // update successful
+                        Swal.fire({
+                            title: "Registration Successful!",
+                            icon: "success",
+                            draggable: true
+                          });
                     })
                     .catch(error => {
                         console.log("Error", error.message)

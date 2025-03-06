@@ -1,8 +1,10 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const UpdateReview = () => {
     const loadedReview = useLoaderData();
+    const navigate = useNavigate();
     const { cover_url, description, email, genre, publishYear, rating, title, username, _id } = loadedReview;
     const handleUpdateReview = e => {
         e.preventDefault();
@@ -28,6 +30,12 @@ const UpdateReview = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                Swal.fire({
+                    title: "Successfully Updated!",
+                    icon: "success",
+                    draggable: true
+                  });
+                  navigate("/")
             })
     }
     return (

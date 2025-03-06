@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const LoginPage = () => {
     const navigate = useNavigate();
@@ -16,6 +17,11 @@ const LoginPage = () => {
                 setNavigateLocation(location?.state);
                 setLoadUserForList(location?.state);
                 navigate(location.state ? location.state : '/')
+                Swal.fire({
+                    title: "Login Successful!",
+                    icon: "success",
+                    draggable: true
+                });
             })
             .catch(error => {
                 console.log("Error", error.message)

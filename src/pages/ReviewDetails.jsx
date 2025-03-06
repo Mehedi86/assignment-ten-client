@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Navigate, useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const ReviewDetails = () => {
 
@@ -21,7 +22,12 @@ const ReviewDetails = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                console.log(data);
+                Swal.fire({
+                    title: "Successfully added!",
+                    icon: "success",
+                    draggable: true
+                  });
             })
     }
 
